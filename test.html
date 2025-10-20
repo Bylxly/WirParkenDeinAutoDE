@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parkplatz-Belegung mit Hintergrundbild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Parkplatz-Belegung mit Hintergrundbild</h1>
+
+  <div class="parking-wrapper">
+    <img src="media/Parpplatzgpt.png" alt="Parkplatz">
+
+    <svg id="parking-svg" viewBox="0 0 1000 600">
+      <rect class="spot" id="P1" x="120" y="100" width="50" height="90" fill="green"/>
+      <rect class="spot" id="P2" x="190" y="100" width="50" height="90" fill="green"/>
+      <rect class="spot" id="P3" x="260" y="100" width="50" height="90" fill="green"/>
+      <rect class="spot" id="P4" x="330" y="100" width="50" height="90" fill="green"/>
+      <rect class="spot" id="P5" x="400" y="100" width="50" height="90" fill="green"/>
+
+      <text x="145" y="155">P1</text>
+      <text x="215" y="155">P2</text>
+      <text x="285" y="155">P3</text>
+      <text x="355" y="155">P4</text>
+      <text x="425" y="155">P5</text>
+    </svg>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
