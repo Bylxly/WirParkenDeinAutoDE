@@ -3,22 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WirParkenDeinAuto.dhbw - Was letzte Parkplatz?">
-    <meta http-equiv="refresh" content="60">
-    <title>wirparkendeinautode</title>
+    <title>Parkplatz Dashboard</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <header>
-        <h1>WirParkenDeinAuto.dhbw</h1>
-    </header>
-    <main>
-        <p>text</p>
-        <img src="/media/ParkplatzGoogleEarth.png">
-        <button onclick="location.reload();">Aktualisieren</button>
-    </main>
-    <footer>
-        <p>&copy; 2025 wirparkendeinautode</p>
-    </footer>
+<!--<div id="app"></div>-->
+
+<!-- Templates direkt im HTML -->
+<!--<template id="desktop-template"> -->
+    <div id="dashboard-container">
+        <div id="parking-left">
+            <div >
+                <h2>Parkplatzplan</h2>
+            </div>
+
+            <div class="parking-wrapper">
+                <img src="/media/GptEditedv1.png" alt="Parkplatzplan">
+
+                <svg id="parking-svg" viewBox="0 0 1024 1024">
+                    <!-- Zone 1  -->
+                    <rect class="spot" id="z1p1" x="7" y="114" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p2" x="7" y="147" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p3" x="7" y="179" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p4" x="7" y="211" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p5" x="7" y="243" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p6" x="7" y="275" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p7" x="7" y="307" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p8" x="7" y="339" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p9" x="7" y="371" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p10" x="7" y="403" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p11" x="7" y="435" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p12" x="7" y="467" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p13" x="7" y="499" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p14" x="7" y="531" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p15" x="7" y="563" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p16" x="7" y="595" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p17" x="7" y="627" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p18" x="7" y="659" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p19" x="7" y="691" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p20" x="7" y="723" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p21" x="7" y="755" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p22" x="7" y="787" width="60" height="27" fill="green"/>
+                    <rect class="spot" id="z1p23" x="7" y="819" width="60" height="27" fill="green"/>
+                    <!-- Zone 2  -->
+                    <rect class="spot" id="z2p1" x="126" y="115" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p2" x="126" y="150" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p3" x="126" y="185" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p4" x="126" y="220" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p5" x="126" y="255" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p6" x="126" y="290" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p7" x="126" y="325" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p8" x="126" y="360" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p9" x="126" y="395" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p10" x="126" y="430" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p11" x="126" y="465" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p12" x="126" y="500" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p13" x="126" y="535" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p14" x="126" y="570" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p15" x="126" y="605" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p16" x="126" y="640" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p17" x="126" y="675" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z2p18" x="126" y="710" width="70" height="30" fill="green"/>
+
+                    <!-- Zone 3  -->
+                    <rect class="spot" id="z3p1" x="226" y="115" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p2" x="226" y="150" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p3" x="226" y="185" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p4" x="226" y="220" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p5" x="226" y="255" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p6" x="226" y="290" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p7" x="226" y="325" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p8" x="226" y="360" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p9" x="226" y="395" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p10" x="226" y="430" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p11" x="226" y="465" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p12" x="226" y="500" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p13" x="226" y="535" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p14" x="226" y="570" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p15" x="226" y="605" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p16" x="226" y="640" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p17" x="226" y="675" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z3p18" x="226" y="710" width="70" height="30" fill="green"/>
+                    <!-- Zone 4  -->
+                    <rect class="spot" id="z4p1" x="345" y="115" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p2" x="345" y="150" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p3" x="345" y="185" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p4" x="345" y="220" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p5" x="345" y="255" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p6" x="345" y="290" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p7" x="345" y="325" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p8" x="345" y="360" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p9" x="345" y="395" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p10" x="345" y="430" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p11" x="345" y="465" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p12" x="345" y="500" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p13" x="345" y="535" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p14" x="345" y="570" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p15" x="345" y="605" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p16" x="345" y="640" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p17" x="345" y="675" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z4p18" x="345" y="710" width="70" height="30" fill="green"/>
+                    <!-- Zone 5  -->
+                    <rect class="spot" id="z5p1" x="445" y="115" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p2" x="445" y="150" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p3" x="445" y="185" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p4" x="445" y="220" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p5" x="445" y="255" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p6" x="445" y="290" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p7" x="445" y="325" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p8" x="445" y="360" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p9" x="445" y="395" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p10" x="445" y="430" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p11" x="445" y="465" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p12" x="445" y="500" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p13" x="445" y="535" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p14" x="445" y="570" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p15" x="445" y="605" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p16" x="445" y="640" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p17" x="445" y="675" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z5p18" x="445" y="710" width="70" height="30" fill="green"/>
+                    <!-- Zone 6  -->
+                    <rect class="spot" id="z6p1" x="564" y="115" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p2" x="564" y="150" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p3" x="564" y="185" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p4" x="564" y="220" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p5" x="564" y="255" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p6" x="564" y="290" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p7" x="564" y="325" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p8" x="564" y="360" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p9" x="564" y="395" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p10" x="564" y="430" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p11" x="564" y="465" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p12" x="564" y="500" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p13" x="564" y="535" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p14" x="564" y="570" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p15" x="564" y="605" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p16" x="564" y="640" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p17" x="564" y="675" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z6p18" x="564" y="710" width="70" height="30" fill="green"/>
+                    <!-- Zone 7  -->
+                    <rect class="spot" id="z7p1" x="664" y="115" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p2" x="664" y="150" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p3" x="664" y="185" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p4" x="664" y="220" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p5" x="664" y="255" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p6" x="664" y="290" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p7" x="664" y="325" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p8" x="664" y="360" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p9" x="664" y="395" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p10" x="664" y="430" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p11" x="664" y="465" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p12" x="664" y="500" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p13" x="664" y="535" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p14" x="664" y="570" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p15" x="664" y="605" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p16" x="664" y="640" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p17" x="664" y="675" width="70" height="30" fill="green"/>
+                    <rect class="spot" id="z7p18" x="664" y="710" width="70" height="30" fill="green"/>
+                    <!-- Zone 8  -->
+                    <rect class="spot" id="z8p1" x="824" y="290" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p2" x="824" y="325" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p3" x="824" y="360" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p4" x="824" y="395" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p5" x="824" y="430" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p6" x="824" y="465" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p7" x="824" y="500" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p8" x="824" y="535" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p9" x="824" y="570" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p10" x="824" y="605" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p11" x="824" y="640" width="60" height="30" fill="green"/>
+                    <rect class="spot" id="z8p12" x="824" y="675" width="60" height="30" fill="green"/>
+
+
+                    <!-- Zone 9  -->
+                    <rect class="spot" id="z9p1" x="67" y="847" width="40" height="60" fill="green"/>
+                    <rect class="spot" id="z9p2" x="112" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p3" x="147" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p4" x="182" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p5" x="217" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p6" x="252" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p7" x="287" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p8" x="322" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p9" x="357" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p10" x="392" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p11" x="427" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z9p12" x="462" y="847" width="30" height="60" fill="green"/>
+
+                    <!-- Zone 10  -->
+                    <rect class="spot" id="z10p1" x="592" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p2" x="627" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p3" x="662" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p4" x="697" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p5" x="732" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p6" x="767" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p7" x="802" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p8" x="837" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p9" x="872" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p10" x="907" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p11" x="942" y="847" width="30" height="60" fill="green"/>
+                    <rect class="spot" id="z10p12" x="977" y="847" width="30" height="60" fill="green"/>
+                </svg>
+            </div>
+
+            <div id="legend">
+                <span class="legend-occupied"></span> Belegt
+                <span class="legend-free"></span> Frei
+            </div>
+        </div>
+
+        <div id="parking-right">
+
+            <div id="header-bar">
+                <h2>Übersicht</h2>
+                <button id="update-button" onclick="updateParkingData()">Aktualisieren</button>
+            </div>
+
+            <div id="counter-wrapper">
+                <span>Freie Plätze:</span>
+                <span id="free-spots">0</span>
+                <span id="total-spots-info">von 167 </span>
+            </div>
+
+            <div id="stats-wrapper">
+                <h3>Statistik der letzten 24 Stunden</h3>
+                <ul id="stats-list">
+                    <li><span>Max. Belegung:</span> <span id="max-occupied">0</span></li>
+                    <li><span>Min. Belegung:</span> <span id="min-occupied">0</span></li>
+                    <li><span>Durchschn. Belegung:</span> <span id="avg-occupied">0</span></li>
+                </ul>
+            </div>
+
+            <div id="chart-wrapper">
+                <canvas id="parking-chart" width="400" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+<!--</template>-->
+
+
+<script defer src="sсript.js"></script>
+<!--<script defer src="script.js"></script>-->
 </body>
 </html>

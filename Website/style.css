@@ -1,56 +1,288 @@
+
+
+/* === Allgemeines Styling === */
 body {
-  font-family: sans-serif;
-  background: #e9ecef;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; /* Hellgrauer Hintergrund */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
 }
 
 h1 {
-  margin-bottom: 10px;
+    display: none; /* Überschrift wird im Dashboard angezeigt */
+}
+
+/* === Dashboard Container === */
+#dashboard-container {
+    display: flex;
+    max-width: 1200px;
+    width: 95%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-height: 700px;
+    overflow: hidden; /* Wichtig für abgerundete Ecken */
+}
+
+/* === Linker Bereich: Parkplatzkarte === */
+#parking-left {
+    flex: 3; /* Nimmt den größten Teil der Breite ein */
+    padding: 20px;
+    background-color: #f8f9fa; /* Trennung des Hintergrunds */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .parking-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  aspect-ratio: 2 / 1;
-  background: #000;
-  margin: 0 auto;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    /* Maximale Breite für besseres Befüllen des Containers entfernt */
+    aspect-ratio: 1.05 / 1;/* Seitenverhältnis für bessere Anzeige */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .parking-wrapper img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; 
-  object-position: center;
-  z-index: 1;
-  background: #000;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 1;
+    background: #777171;
 }
 
 .parking-wrapper svg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
 }
 
 rect.spot {
-  stroke: #333;
-  stroke-width: 2;
-  transition: fill 0.5s ease;
-  opacity: 0.6;
+    stroke: rgba(255, 255, 255, 0.1); /* Leichter Strich */
+    stroke-width: 2;
+    transition: fill 0.5s ease;
+    opacity: 0.75; /* Transluzenz für Overlay-Effekt */
 }
 
-text {
-  font-size: 10px;
-  fill: white;
-  text-anchor: middle;
-  pointer-events: none;
+/* === Rechter Bereich: Statistik & Zähler === */
+#parking-right {
+    flex: 2;
+    background: #ffffff;
+    padding: 20px;
+    border-left: 1px solid #e0e0e0;
+    min-width: 300px;
+}
+
+/* Kopfzeile */
+#header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+#header-bar h2 {
+    margin: 0;
+    color: #333;
+    font-size: 1.4em;
+}
+
+/* Button */
+#update-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+#update-button:hover {
+    background: #0056b3;
+}
+
+/* === Zählerbereich === */
+#counter-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+#counter-wrapper span {
+    font-size: 1.2em;
+    color: #6c757d;
+}
+
+#free-spots {
+    font-weight: 700;
+    font-size: 3.5em; /* Sehr große Schriftart für den Zähler */
+    color: #28a745; /* Grüne Farbe für freie Plätze */
+    line-height: 1.0;
+    transition: color 0.5s, transform 0.3s;
+    display: block;
+    margin-top: 5px;
+}
+
+#total-spots-info {
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* === Statistik === */
+#stats-wrapper {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+}
+
+#stats-wrapper h3 {
+    font-size: 1.1em;
+    color: #343a40;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#stats-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 0.95em;
+    color: #495057;
+}
+
+/* === Diagramm === */
+#chart-wrapper {
+    margin-top: 10px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#parking-chart {
+    width: 100%;
+    height: 250px;
+}
+
+/* === Legende === */
+#legend {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+.legend-free, .legend-occupied {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.legend-free { background-color: #4caf50; }
+.legend-occupied { background-color: #e53935; }
+
+/* ----------------------------------------------
+ DESKTOP ANSICHT (ab 801px)
+---------------------------------------------- */
+@media (min-width: 801px) {
+    #dashboard-container {
+        flex-direction: row; /* Nebeneinander */
+    }
+
+    #parking-left {
+        border-right: 1px solid #e0e0e0;
+    }
+
+    #parking-right {
+        border-left: none;
+    }
+
+    #legend {
+        align-self: flex-start;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+
+}
+
+/* ----------------------------------------------
+MOBILE ANSICHT (bis 800px)
+---------------------------------------------- */
+@media (max-width: 800px) {
+    body {
+        padding: 10px;
+    }
+
+    #dashboard-container {
+        flex-direction: column; /* Untereinander */
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    #parking-left, #parking-right {
+        width: 95%;
+        border: none;
+        padding: 10px;
+    }
+
+    #header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    #update-button {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    #free-spots {
+        font-size: 2em;
+    }
+
+    #legend {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 15px;
+    }
 }
